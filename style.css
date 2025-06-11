@@ -1,0 +1,76 @@
+/* General body */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9faff;
+  color: #222;
+  margin: 0;
+  padding: 0;
+}
+
+/* Container for products */
+.products-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+/* Each product card */
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgb(0 0 0 / 0.1);
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 25px rgb(0 0 0 / 0.2);
+}
+
+/* Product title */
+.product-card h3 {
+  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #007bff;
+}
+
+/* Product description */
+.product-card p {
+  flex-grow: 1;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons in product card */
+.product-card a.btn-details {
+  margin-top: 20px;
+  align-self: flex-start;
+  padding: 10px 18px;
+  background-color: #007bff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.product-card a.btn-details:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive typography */
+@media (max-width: 600px) {
+  .product-card h3 {
+    font-size: 1.2rem;
+  }
+}
