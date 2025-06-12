@@ -2,189 +2,182 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Swastik Software - Chitwan Branch</title>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {
-      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
       font-family: 'Roboto', sans-serif;
-      color: #fff;
       overflow-x: hidden;
+      color: #fff;
     }
 
-    nav {
-      background: rgba(10, 25, 47, 0.9);
-      padding: 15px 40px;
-      position: sticky;
+    .video-bg {
+      position: fixed;
       top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    }
-    nav .logo {
-      font-family: 'Orbitron', sans-serif;
-      font-size: 1.6rem;
-      color: #39e7e7;
-    }
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-    nav ul li a {
-      color: #e5f4f4;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: #39e7e7;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
     }
 
-    .container {
-      height: 90vh;
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 0;
+    }
+
+    .navbar {
+      background: rgba(0, 0, 0, 0.8);
       display: flex;
       justify-content: center;
       align-items: center;
-      perspective: 1500px;
-      padding: 15px;
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 0 10px #00f0ff;
+    }
+    .navbar a {
+      color: #00f0ff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .navbar a:hover {
+      color: #ffffff;
     }
 
-    .card {
-      background: rgba(20, 30, 40, 0.85);
-      border-radius: 20px;
-      box-shadow: 0 0 60px #39e7e7, 0 0 20px #dde2e4 inset;
-      width: 350px;
-      padding: 40px;
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
-      animation: float 6s ease-in-out infinite;
-      border: 2px solid #2cc3e9b4;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
-      50% { transform: translateY(-20px) rotateX(8deg) rotateY(15deg); }
+      padding: 0 20px;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2.8rem;
-      color: #eceeec;
-      text-shadow: 0 0 5px #010e0e, 0 0 10px #010a0c, 0 0 20px #011313, 0 0 40px #02040f;
-      margin-bottom: 20px;
+      font-size: 3rem;
+      letter-spacing: 0.15em;
+      text-shadow: 0 0 10px #39e7e7, 0 0 20px #39e7e7;
+      margin-bottom: 10px;
     }
 
-    p.subtitle {
+    .subtitle {
       font-weight: 700;
-      font-size: 1.1rem;
-      margin-bottom: 30px;
-      color: #e4eceef8;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: #e0f7fa;
     }
 
     .btn {
       display: inline-block;
-      padding: 14px 36px;
+      padding: 12px 28px;
       border-radius: 30px;
       text-decoration: none;
       font-weight: 700;
       font-size: 1rem;
-      letter-spacing: 0.1em;
-      margin: 8px 10px;
+      margin: 10px 5px;
       transition: all 0.3s ease;
-      box-shadow: 0 0 8px #e9eeee;
+      box-shadow: 0 0 10px #00f0ff;
     }
     .btn-primary {
-      background: #0000001f;
-      color: #f3f3f3;
+      background: #00f0ff;
+      color: #000;
     }
     .btn-primary:hover {
-      background: #00d0cc;
-      box-shadow: 0 0 20px #00d0cc;
-      color: #000;
+      background: #0cf0c0;
+      box-shadow: 0 0 20px #0cf0c0;
     }
     .btn-secondary {
       background: transparent;
-      border: 2px solid #dde5e6;
-      color: #ebf6f7;
+      border: 2px solid #00f0ff;
+      color: #00f0ff;
     }
     .btn-secondary:hover {
-      background: #041516;
-      box-shadow: 0 0 20px #f6f8f8;
-      color: #f3fbfd;
+      background: #00f0ff;
+      color: #000;
+      box-shadow: 0 0 20px #00f0ff;
     }
 
-    .particles {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 0;
-    }
-    .particle {
-      position: absolute;
-      background: #1eff00;
-      opacity: 0.15;
-      border-radius: 50%;
-      animation: drift 15s linear infinite;
-    }
-    @keyframes drift {
-      0% {transform: translateY(100vh) translateX(0) scale(0.5);}
-      100% {transform: translateY(-10vh) translateX(50vw) scale(1);}
+    .clock {
+      font-family: 'Orbitron', sans-serif;
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff;
     }
 
-    @media (max-width: 400px) {
-      .card { width: 90vw; padding: 30px; }
-      h1 { font-size: 2rem; }
-      p.subtitle { font-size: 1rem; }
-      .btn { padding: 12px 28px; font-size: 0.9rem; }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .subtitle {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
+  <video autoplay muted loop class="video-bg">
+    <source src="https://cdn.coverr.co/videos/coverr-circuit-board-2095/1080p.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <div class="overlay"></div>
 
-  <nav>
-    <div class="logo">Swastik Software</div>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="products.html">Products</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="jobs.html">Jobs</a></li>
-      <li><a href="our-clients.html">Clients</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-
-  <div class="particles">
-    <div class="particle" style="width:10px; height:10px; left:5%; animation-delay: 0s;"></div>
-    <div class="particle" style="width:15px; height:15px; left:15%; animation-delay: 3s;"></div>
-    <div class="particle" style="width:8px; height:8px; left:25%; animation-delay: 5s;"></div>
-    <div class="particle" style="width:12px; height:12px; left:40%; animation-delay: 2s;"></div>
-    <div class="particle" style="width:10px; height:10px; left:55%; animation-delay: 7s;"></div>
-    <div class="particle" style="width:14px; height:14px; left:70%; animation-delay: 1s;"></div>
-    <div class="particle" style="width:9px; height:9px; left:85%; animation-delay: 4s;"></div>
+  <div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="services.html">Services</a>
+    <a href="jobs.html">Jobs</a>
+    <a href="our-clients.html">Clients</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </div>
 
-  <div class="container">
-    <div class="card" role="main">
-      <h1>Swastik Software</h1>
-      <p class="subtitle">Chitwan Branch | Nepal's No.1 Business Solution Provider</p>
-      <a href="products.html" class="btn btn-primary">Products</a>
-      <a href="services.html" class="btn btn-primary">Services</a>
-      <a href="jobs.html" class="btn btn-primary">Career</a>
-      <a href="our-clients.html" class="btn btn-primary">Clients</a>
-      <a href="about.html" class="btn btn-primary">About</a>
-      <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-    </div>
+  <div class="content">
+    <h1>Swastik Software</h1>
+    <p class="subtitle">Branch Chitwan | Made in Nepal | Nepal’s No.1 Business Solution Provider Company</p>
+    <a href="products.html" class="btn btn-primary">Products</a>
+    <a href="services.html" class="btn btn-primary">Services</a>
+    <a href="jobs.html" class="btn btn-primary">Career</a>
+    <a href="our-clients.html" class="btn btn-primary">Our Clients</a>
+    <a href="about.html" class="btn btn-primary">About</a>
+    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+    <div class="clock" id="clock"></div>
   </div>
 
-  <!-- Tidio Chatbot Script -->
+  <!-- Tidio Chatbot -->
   <script src="//code.tidio.co/gz5ovafvefpz22khfntkxotsk82jnl5p.js" async></script>
 
+  <!-- Live Clock Script -->
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const date = now.toLocaleDateString();
+      const time = now.toLocaleTimeString();
+      document.getElementById('clock').innerHTML = `${date} | ${time}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
 </body>
 </html>
