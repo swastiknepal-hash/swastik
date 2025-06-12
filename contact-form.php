@@ -1,21 +1,12 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "swastiksoftware12@gmail.com"; // 
-    $name = htmlspecialchars(trim($_POST["name"]));
-    $email = htmlspecialchars(trim($_POST["email"]));
-    $message = htmlspecialchars(trim($_POST["message"]));
-
-    $subject = "New Contact Message from $name";
-    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
-    $headers = "From: $email\r\nReply-To: $email\r\n";
-
-    if (mail($to, $subject, $body, $headers)) {
-        echo "<h2>Thank you! Your message has been sent.</h2>";
-    } else {
-        echo "<h2>Sorry, something went wrong. Please try again later.</h2>";
-    }
-} else {
-    header("Location: contact.html");
-    exit();
-}
-?>
+<form action="https://formsubmit.co/swastiksoftware12@gmail.com" method="POST">
+  <input type="text" name="name" placeholder="Your Name" required>
+  <input type="email" name="email" placeholder="Email address" required>
+  <input type="text" name="phone" placeholder="Mobile Number">
+  <input type="text" name="company" placeholder="Company Name">
+  <textarea name="message" placeholder="Your Message" required></textarea>
+  
+  <!-- Optional: Redirect to thank you page -->
+  <input type="hidden" name="_next" value="https://swastiknepal-hash.github.io/swastik/thankyou.html">
+  
+  <button type="submit">Send Message</button>
+</form>
