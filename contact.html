@@ -2,117 +2,175 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact Us - Swastik Software Chitwan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Swastik Software</title>
   <style>
     :root {
-      --primary-color: #0056b3;
-      --secondary-color: #ffffff;
-      --background-color: #f4f7fa;
-      --text-color: #333;
-      --accent-color: #003d80;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --primary: #0056b3;
+      --accent: #003d80;
+      --bg: #f4f7fa;
+      --text: #333;
     }
 
     body {
-      background-color: var(--background-color);
-      color: var(--text-color);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    .contact-container {
-      max-width: 800px;
-      background-color: var(--secondary-color);
-      margin: 50px auto;
-      padding: 40px 30px;
+    /* Navigation */
+    nav {
+      background: var(--primary);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav h2 {
+      color: #fff;
+      margin: 0;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 12px;
+      font-weight: 500;
+    }
+
+    nav .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #fff;
       border-radius: 10px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
     }
 
     h1 {
       text-align: center;
-      color: var(--primary-color);
-      margin-bottom: 25px;
-      font-size: 32px;
-    }
-
-    .info {
-      margin-bottom: 30px;
-      font-size: 16px;
-      line-height: 1.7;
+      color: var(--primary);
+      margin-bottom: 20px;
     }
 
     .info p {
-      margin-bottom: 10px;
+      line-height: 1.8;
     }
 
     .info strong {
-      color: var(--primary-color);
+      color: var(--accent);
     }
 
-    form label {
-      display: block;
-      margin-bottom: 6px;
-      margin-top: 16px;
+    form {
+      margin-top: 30px;
+    }
+
+    label {
       font-weight: bold;
+      margin-top: 20px;
+      display: block;
     }
 
-    form input,
-    form select,
-    form textarea {
+    input, select, textarea {
       width: 100%;
       padding: 12px;
-      margin-top: 4px;
-      font-size: 16px;
+      margin-top: 6px;
+      font-size: 15px;
       border: 1px solid #ccc;
       border-radius: 6px;
-      transition: border 0.3s;
+      box-sizing: border-box;
     }
 
-    form input:focus,
-    form select:focus,
-    form textarea:focus {
-      border-color: var(--primary-color);
-      outline: none;
-    }
-
-    form textarea {
-      min-height: 120px;
+    textarea {
       resize: vertical;
+      min-height: 100px;
     }
 
     button {
-      margin-top: 25px;
-      background-color: var(--primary-color);
+      margin-top: 20px;
+      background-color: var(--primary);
       color: white;
-      padding: 14px 28px;
+      padding: 12px 24px;
       border: none;
-      font-size: 16px;
       border-radius: 6px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      font-size: 16px;
     }
 
     button:hover {
-      background-color: var(--accent-color);
+      background-color: var(--accent);
+    }
+
+    .map {
+      margin-top: 40px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: 0;
+      border-radius: 10px;
+    }
+
+    .socials {
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .socials a {
+      margin: 0 10px;
+      font-size: 22px;
+      text-decoration: none;
+      color: var(--primary);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 20px;
+      background: #e9f0f8;
+      font-size: 14px;
+      color: #666;
     }
 
     @media (max-width: 600px) {
-      .contact-container {
-        padding: 25px 15px;
+      nav .menu {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
       }
     }
   </style>
+  <!-- Font Awesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
-  <div class="contact-container">
-    <h1>Contact Swastik Software - Chitwan</h1>
+  <nav>
+    <h2>Swastik Software</h2>
+    <div class="menu">
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="training.html">Training</a>
+      <a href="jobs.html">Jobs</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <h1>Contact Us</h1>
 
     <div class="info">
       <p><strong>Address:</strong> Narayanghat, Bharatpur-10, Chitwan, Nepal</p>
@@ -123,35 +181,54 @@
 
     <form action="https://formspree.io/f/your-form-id" method="POST">
       <label for="name">Full Name *</label>
-      <input type="text" id="name" name="name" placeholder="Your full name" required />
+      <input type="text" id="name" name="name" required>
 
       <label for="email">Email Address *</label>
-      <input type="email" id="email" name="_replyto" placeholder="you@example.com" required />
+      <input type="email" id="email" name="_replyto" required>
 
       <label for="phone">Phone Number</label>
-      <input type="text" id="phone" name="phone" placeholder="+977-XXXXXXXXXX" />
+      <input type="text" id="phone" name="phone">
 
       <label for="software">Desired Software / Service *</label>
       <select id="software" name="software" required>
         <option value="" disabled selected>Select an option</option>
-        <option value="Payroll Management System">Payroll Management System</option>
-        <option value="School Management System">School Management System</option>
-        <option value="Hotel Management System">Hotel Management System</option>
-        <option value="Inventory Management System">Inventory Management System</option>
-        <option value="Custom Software Development">Custom Software Development</option>
-        <option value="Website Development">Website Development</option>
-        <option value="Other">Other</option>
+        <option>Accounting Software (IRD Certified)</option>
+        <option>Payroll Management System</option>
+        <option>School Management System</option>
+        <option>Hotel Management System</option>
+        <option>Inventory Management System</option>
+        <option>Website Development</option>
+        <option>Other</option>
       </select>
 
       <label for="message">Additional Details</label>
-      <textarea id="message" name="message" placeholder="Describe your requirements..."></textarea>
+      <textarea id="message" name="message" placeholder="Tell us more..."></textarea>
 
       <button type="submit">Submit Enquiry</button>
     </form>
+
+    <div class="map">
+      <h2>Find Us</h2>
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.7591483949934!2d84.43491767522004!3d27.69457802551411!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3994fdb87fc8a43f%3A0x8e12304fd808f3f7!2sBharatpur%2010%2C%20Chitwan!5e0!3m2!1sen!2snp!4v1718160000000"
+        allowfullscreen=""
+        loading="lazy"
+      ></iframe>
+    </div>
+
+    <div class="socials">
+      <h2>Follow Us</h2>
+      <a href="#" title="Facebook"><i class="fab fa-facebook-square"></i></a>
+      <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    </div>
   </div>
 
-  <!-- Tidio Live Chat Integration -->
-  <script src="//code.tidio.co/gz5ovafvefpz22khfntkxotsk82jnl5p.js" async></script>
+  <footer>
+    &copy; 2025 Swastik Software - Chitwan Branch. All rights reserved.
+  </footer>
 
+  <!-- Tidio Live Chat Script -->
+  <script src="//code.tidio.co/gz5ovafvefpz22khfntkxotsk82jnl5p.js" async></script>
 </body>
 </html>
