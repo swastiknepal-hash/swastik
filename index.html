@@ -3,25 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Swastik Software - Branch Chitwan</title>
+  <title>Swastik Software - Chitwan Branch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap');
-
-    /* Reset & base */
-    * {
-      margin: 0; padding: 0; box-sizing: border-box;
-    }
-    body, html {
-      height: 100%;
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       font-family: 'Roboto', sans-serif;
-      overflow-x: hidden;
       color: #fff;
+      overflow-x: hidden;
     }
 
-    /* Container */
+    nav {
+      background: rgba(10, 25, 47, 0.9);
+      padding: 15px 40px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+    }
+    nav .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.6rem;
+      color: #39e7e7;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: #e5f4f4;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #39e7e7;
+    }
+
     .container {
-      height: 100vh;
+      height: 90vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -29,7 +54,6 @@
       padding: 15px;
     }
 
-    /* 3D Card */
     .card {
       background: rgba(20, 30, 40, 0.85);
       border-radius: 20px;
@@ -37,33 +61,23 @@
       width: 350px;
       padding: 40px;
       text-align: center;
-      transform-style: preserve-3d;
       animation: float 6s ease-in-out infinite;
       border: 2px solid #2cc3e9b4;
-      user-select: none;
     }
 
     @keyframes float {
       0%, 100% { transform: translateY(0) rotateX(0) rotateY(0); }
-      50% { transform: translateY(-20px) rotateX(8deg) rotateY(15deg);}
+      50% { transform: translateY(-20px) rotateX(8deg) rotateY(15deg); }
     }
 
-    /* Neon glowing title */
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: 2.8rem;
-      letter-spacing: 0.15em;
       color: #eceeec;
-      text-shadow:
-        0 0 5px #010e0e,
-        0 0 10px #010a0c,
-        0 0 20px #011313,
-        0 0 40px #02040f;
+      text-shadow: 0 0 5px #010e0e, 0 0 10px #010a0c, 0 0 20px #011313, 0 0 40px #02040f;
       margin-bottom: 20px;
-      user-select: text;
     }
 
-    /* Subtitle */
     p.subtitle {
       font-weight: 700;
       font-size: 1.1rem;
@@ -71,7 +85,6 @@
       color: #e4eceef8;
     }
 
-    /* Buttons */
     .btn {
       display: inline-block;
       padding: 14px 36px;
@@ -80,19 +93,18 @@
       font-weight: 700;
       font-size: 1rem;
       letter-spacing: 0.1em;
-      margin: 0 10px;
+      margin: 8px 10px;
       transition: all 0.3s ease;
       box-shadow: 0 0 8px #e9eeee;
-      user-select: none;
     }
     .btn-primary {
       background: #0000001f;
       color: #f3f3f3;
-      border: none;
     }
     .btn-primary:hover {
       background: #00d0cc;
       box-shadow: 0 0 20px #00d0cc;
+      color: #000;
     }
     .btn-secondary {
       background: transparent;
@@ -101,11 +113,10 @@
     }
     .btn-secondary:hover {
       background: #041516;
-      color: #f3fbfd;
       box-shadow: 0 0 20px #f6f8f8;
+      color: #f3fbfd;
     }
 
-    /* Glowing floating particles */
     .particles {
       position: fixed;
       top: 0; left: 0;
@@ -126,28 +137,30 @@
       100% {transform: translateY(-10vh) translateX(50vw) scale(1);}
     }
 
-    /* Responsive */
     @media (max-width: 400px) {
-      .card {
-        width: 90vw;
-        padding: 30px;
-      }
-      h1 {
-        font-size: 2rem;
-      }
-      p.subtitle {
-        font-size: 1rem;
-      }
-      .btn {
-        padding: 12px 28px;
-        font-size: 0.9rem;
-      }
+      .card { width: 90vw; padding: 30px; }
+      h1 { font-size: 2rem; }
+      p.subtitle { font-size: 1rem; }
+      .btn { padding: 12px 28px; font-size: 0.9rem; }
     }
   </style>
 </head>
 <body>
 
-  <div class="particles" aria-hidden="true">
+  <nav>
+    <div class="logo">Swastik Software</div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="products.html">Products</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="our-clients.html">Clients</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="particles">
     <div class="particle" style="width:10px; height:10px; left:5%; animation-delay: 0s;"></div>
     <div class="particle" style="width:15px; height:15px; left:15%; animation-delay: 3s;"></div>
     <div class="particle" style="width:8px; height:8px; left:25%; animation-delay: 5s;"></div>
@@ -158,17 +171,20 @@
   </div>
 
   <div class="container">
-    <div class="card" role="main" aria-label="Swastik Software Introduction">
+    <div class="card" role="main">
       <h1>Swastik Software</h1>
-      <p class="subtitle">Branch Chitwan | Made in Nepal |Nepal’s No.1 Business Solution   Provider  Company</p>
-      <a href="products.html" class="btn btn-primary" aria-label="Explore Our Products">Products</a>
-      <a href="services.html" class="btn btn-primary" aria-label="Explore Our services">Services</a>
-        <a href="jobs.html" class="btn btn-primary" aria-label="Explore Our jobs">Career</a>
-         <a href="our-clients.html" class="btn btn-primary" aria-label=" Our our-clients ">Our clients</a>
-         <a href="about.html" class="btn btn-primary" aria-label="Explore Our about">About</a>
-      <a href="contact.html" class="btn btn-secondary" aria-label="Contact Swastik Software">Contact Us</a>
+      <p class="subtitle">Chitwan Branch | Nepal's No.1 Business Solution Provider</p>
+      <a href="products.html" class="btn btn-primary">Products</a>
+      <a href="services.html" class="btn btn-primary">Services</a>
+      <a href="jobs.html" class="btn btn-primary">Career</a>
+      <a href="our-clients.html" class="btn btn-primary">Clients</a>
+      <a href="about.html" class="btn btn-primary">About</a>
+      <a href="contact.html" class="btn btn-secondary">Contact Us</a>
     </div>
   </div>
+
+  <!-- Tidio Chatbot Script -->
+  <script src="//code.tidio.co/gz5ovafvefpz22khfntkxotsk82jnl5p.js" async></script>
 
 </body>
 </html>
