@@ -1,6 +1,6 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "swastiksoftware12@gmail.com_create_guid"; // Replace with your actual email
+    $to = "swastiksoftware12@gmail.com"; // 
     $name = htmlspecialchars(trim($_POST["name"]));
     $email = htmlspecialchars(trim($_POST["email"]));
     $message = htmlspecialchars(trim($_POST["message"]));
