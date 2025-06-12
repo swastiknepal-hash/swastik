@@ -70,18 +70,13 @@
     .content {
       position: relative;
       z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       text-align: center;
-      padding: 0 20px;
+      padding: 120px 20px 80px;
     }
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
+      font-size: 3.5rem;
       letter-spacing: 0.15em;
       text-shadow: 0 0 10px #39e7e7, 0 0 20px #39e7e7;
       margin-bottom: 10px;
@@ -89,27 +84,34 @@
 
     .subtitle {
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
+      font-size: 1.4rem;
+      margin-bottom: 30px;
       color: #e0f7fa;
     }
 
     .hero-image {
-      max-width: 80%;
+      max-width: 90%;
       height: auto;
       border-radius: 20px;
       box-shadow: 0 0 30px #00f0ff;
-      margin: 30px 0;
+      margin-bottom: 30px;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 50px;
     }
 
     .btn {
       display: inline-block;
-      padding: 12px 28px;
-      border-radius: 30px;
+      padding: 14px 32px;
+      border-radius: 50px;
       text-decoration: none;
       font-weight: 700;
-      font-size: 1rem;
-      margin: 10px 5px;
+      font-size: 1.1rem;
       transition: all 0.3s ease;
       box-shadow: 0 0 10px #00f0ff;
     }
@@ -132,30 +134,39 @@
       box-shadow: 0 0 20px #00f0ff;
     }
 
-    .clock {
-      font-family: 'Orbitron', sans-serif;
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #00f0ff;
-      text-shadow: 0 0 10px #00f0ff;
-    }
-
     .clients-banner {
-      margin-top: 40px;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       background: #00000088;
       padding: 20px 40px;
       border-radius: 15px;
       border: 1px solid #00f0ff;
       box-shadow: 0 0 15px #00f0ff;
+      margin-bottom: 40px;
+    }
+
+    .clock {
+      font-family: 'Orbitron', sans-serif;
+      margin-top: 10px;
+      font-size: 1.4rem;
+      color: #00f0ff;
+      text-shadow: 0 0 10px #00f0ff;
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 60px auto;
+      padding: 50px 30px;
+      background: rgba(0, 0, 0, 0.75);
+      border-radius: 25px;
+      box-shadow: 0 0 40px #00f0ff;
     }
 
     @media (max-width: 480px) {
       h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .subtitle {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       .hero-image {
         max-width: 100%;
@@ -184,14 +195,34 @@
     <h1>Swastik Software</h1>
     <p class="subtitle">Branch Chitwan | Made in Nepal | Nepal’s No.1 Business Solution Provider Company</p>
     <img src="https://images.unsplash.com/photo-1581091012184-7ab1bcb8e0f2" alt="Business Software" class="hero-image">
-    <a href="products.html" class="btn btn-primary">Products</a>
-    <a href="services.html" class="btn btn-primary">Services</a>
-    <a href="jobs.html" class="btn btn-primary">Career</a>
-    <a href="our-clients.html" class="btn btn-primary">Our Clients</a>
-    <a href="about.html" class="btn btn-primary">About</a>
-    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+
+    <div class="btn-group">
+      <a href="products.html" class="btn btn-primary">Products</a>
+      <a href="services.html" class="btn btn-primary">Services</a>
+      <a href="jobs.html" class="btn btn-primary">Career</a>
+      <a href="our-clients.html" class="btn btn-primary">Our Clients</a>
+      <a href="about.html" class="btn btn-primary">About</a>
+      <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+    </div>
+
     <div class="clients-banner">✅ Trusted by <strong>10,000+ clients</strong> all over Nepal</div>
     <div class="clock" id="clock"></div>
+
+    <div class="section">
+      <h2>Powering Nepali Businesses for Over 20 Years</h2>
+      <p>Swastik Software empowers small to large scale businesses with advanced, IRD-certified software solutions tailored to Nepali market needs.</p>
+      <img src="https://images.unsplash.com/photo-1600369672758-3d0d5db6bfc5" alt="Software Demo" style="width: 100%; border-radius: 15px; margin-top: 20px;">
+    </div>
+
+    <div class="section">
+      <h2>Why Choose Us?</h2>
+      <ul style="text-align: left; padding-left: 20px;">
+        <li>✅ 20+ Years of Experience</li>
+        <li>✅ IRD Certified Accounting & Billing Software</li>
+        <li>✅ 10,000+ Satisfied Clients</li>
+        <li>✅ Fast, Friendly Support Across Nepal</li>
+      </ul>
+    </div>
   </div>
 
   <!-- Tidio Chatbot -->
