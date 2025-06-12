@@ -2,182 +2,240 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Swastik Software - Chitwan Branch</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Reset */
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
     body, html {
       height: 100%;
       font-family: 'Roboto', sans-serif;
-      overflow-x: hidden;
+      overflow: hidden;
+      background: #000;
       color: #fff;
     }
 
-    .video-bg {
+    /* Video background */
+    #bg-video {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
       object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.4);
+    }
+
+    /* Overlay */
+    #overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.55);
       z-index: -1;
     }
 
-    .overlay {
+    /* Navbar with 3D style */
+    nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
-
-    .navbar {
-      background: rgba(0, 0, 0, 0.8);
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
       display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 0 10px #00f0ff;
-    }
-    .navbar a {
-      color: #00f0ff;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
-      text-transform: uppercase;
-      transition: color 0.3s;
-    }
-    .navbar a:hover {
-      color: #ffffff;
-    }
-
-    .content {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-      padding: 0 20px;
-    }
-
-    h1 {
+      gap: 20px;
+      background: rgba(0,0,0,0.65);
+      padding: 12px 25px;
+      border-radius: 40px;
+      box-shadow:
+        0 4px 15px rgba(0,255,255,0.3),
+        inset 0 0 10px rgba(0,255,255,0.7);
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      letter-spacing: 0.15em;
-      text-shadow: 0 0 10px #39e7e7, 0 0 20px #39e7e7;
-      margin-bottom: 10px;
+      z-index: 10;
     }
-
-    .subtitle {
+    nav a {
+      color: #00fff7;
+      text-decoration: none;
       font-weight: 700;
-      font-size: 1.2rem;
-      margin-bottom: 20px;
-      color: #e0f7fa;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
+      font-size: 1.1rem;
+      padding: 8px 20px;
       border-radius: 30px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 1rem;
-      margin: 10px 5px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 10px #00f0ff;
+      box-shadow:
+        0 6px 10px rgba(0,255,255,0.7),
+        inset 0 -3px 6px rgba(0,255,255,0.8);
+      transition: 
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
     }
-    .btn-primary {
-      background: #00f0ff;
+    nav a:hover,
+    nav a:focus {
+      background-color: #00fff7;
       color: #000;
-    }
-    .btn-primary:hover {
-      background: #0cf0c0;
-      box-shadow: 0 0 20px #0cf0c0;
-    }
-    .btn-secondary {
-      background: transparent;
-      border: 2px solid #00f0ff;
-      color: #00f0ff;
-    }
-    .btn-secondary:hover {
-      background: #00f0ff;
-      color: #000;
-      box-shadow: 0 0 20px #00f0ff;
+      box-shadow:
+        0 0 20px #00fff7,
+        inset 0 0 15px #00fff7;
+      transform: translateY(-3px);
+      outline: none;
     }
 
-    .clock {
+    /* Center content container */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      max-width: 700px;
+      padding: 20px;
+      user-select: none;
+    }
+
+    .content h1 {
       font-family: 'Orbitron', sans-serif;
-      margin-top: 20px;
-      font-size: 1.3rem;
-      color: #00f0ff;
-      text-shadow: 0 0 10px #00f0ff;
+      font-size: 4rem;
+      letter-spacing: 0.2em;
+      color: #00fff7;
+      text-shadow:
+        0 0 10px #00fff7,
+        0 0 20px #00fff7,
+        0 0 30px #00fff7;
+      margin-bottom: 20px;
     }
 
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 2rem;
+    .content p.subtitle {
+      font-weight: 700;
+      font-size: 1.4rem;
+      color: #a0ffff;
+      margin-bottom: 40px;
+      text-shadow: 0 0 6px rgba(0,255,255,0.7);
+    }
+
+    /* Buttons below heading */
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .btn {
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 15px 40px;
+      border-radius: 40px;
+      text-decoration: none;
+      color: #00fff7;
+      background: rgba(0,255,255,0.15);
+      border: 2px solid #00fff7;
+      box-shadow:
+        0 4px 15px rgba(0,255,255,0.4),
+        inset 0 0 10px rgba(0,255,255,0.6);
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        box-shadow 0.3s ease,
+        transform 0.2s ease;
+    }
+    .btn:hover,
+    .btn:focus {
+      background-color: #00fff7;
+      color: #000;
+      box-shadow:
+        0 0 25px #00fff7,
+        inset 0 0 20px #00fff7;
+      transform: translateY(-4px);
+      outline: none;
+    }
+
+    /* Live date/time */
+    #datetime {
+      margin-top: 50px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.3rem;
+      color: #40e0d0;
+      text-shadow: 0 0 10px #40e0d0;
+      user-select: text;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .content h1 {
+        font-size: 2.6rem;
+        letter-spacing: 0.1em;
       }
-      .subtitle {
+      .btn {
         font-size: 1rem;
+        padding: 12px 30px;
+      }
+      nav {
+        gap: 12px;
+        padding: 10px 15px;
+      }
+      nav a {
+        font-size: 1rem;
+        padding: 6px 12px;
       }
     }
   </style>
 </head>
 <body>
-  <video autoplay muted loop class="video-bg">
-    <source src="https://cdn.coverr.co/videos/coverr-circuit-board-2095/1080p.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
+
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline id="bg-video" aria-hidden="true">
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-06/small_watermarked/180529_01_City_4k_004_preview.webm" type="video/webm" />
+    <source src="https://cdn.videvo.net/videvo_files/video/free/2018-06/small_watermarked/180529_01_City_4k_004_preview.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
   </video>
-  <div class="overlay"></div>
+  <div id="overlay"></div>
 
-  <div class="navbar">
-    <a href="index.html">Home</a>
-    <a href="products.html">Products</a>
-    <a href="services.html">Services</a>
-    <a href="jobs.html">Jobs</a>
-    <a href="our-clients.html">Clients</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </div>
+  <!-- Navbar -->
+  <nav role="navigation" aria-label="Primary navigation">
+    <a href="index.html" tabindex="1">Home</a>
+    <a href="products.html" tabindex="2">Products</a>
+    <a href="services.html" tabindex="3">Services</a>
+    <a href="jobs.html" tabindex="4">Jobs</a>
+    <a href="our-clients.html" tabindex="5">Clients</a>
+    <a href="about.html" tabindex="6">About</a>
+    <a href="contact.html" tabindex="7">Contact</a>
+  </nav>
 
-  <div class="content">
+  <!-- Main Content -->
+  <main class="content" role="main">
     <h1>Swastik Software</h1>
     <p class="subtitle">Branch Chitwan | Made in Nepal | Nepal’s No.1 Business Solution Provider Company</p>
-    <a href="products.html" class="btn btn-primary">Products</a>
-    <a href="services.html" class="btn btn-primary">Services</a>
-    <a href="jobs.html" class="btn btn-primary">Career</a>
-    <a href="our-clients.html" class="btn btn-primary">Our Clients</a>
-    <a href="about.html" class="btn btn-primary">About</a>
-    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-    <div class="clock" id="clock"></div>
-  </div>
+    <div class="btn-group" role="group" aria-label="Primary site navigation buttons">
+      <a href="products.html" class="btn" tabindex="8">Products</a>
+      <a href="services.html" class="btn" tabindex="9">Services</a>
+      <a href="jobs.html" class="btn" tabindex="10">Career</a>
+      <a href="our-clients.html" class="btn" tabindex="11">Our Clients</a>
+      <a href="about.html" class="btn" tabindex="12">About</a>
+      <a href="contact.html" class="btn" tabindex="13">Contact Us</a>
+    </div>
+    <div id="datetime" aria-live="polite" aria-atomic="true"></div>
+  </main>
 
   <!-- Tidio Chatbot -->
   <script src="//code.tidio.co/gz5ovafvefpz22khfntkxotsk82jnl5p.js" async></script>
 
-  <!-- Live Clock Script -->
+  <!-- Live date/time script -->
   <script>
-    function updateClock() {
-      const now = new Date();
-      const date = now.toLocaleDateString();
-      const time = now.toLocaleTimeString();
-      document.getElementById('clock').innerHTML = `${date} | ${time}`;
+    function updateDateTime() {
+      const dt = new Date();
+      const options = {
+        weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+        hour: '2-digit', minute: '2-digit', second: '2-digit',
+        hour12: true,
+      };
+      document.getElementById('datetime').textContent = dt.toLocaleString('en-US', options);
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+    updateDateTime();
+    setInterval(updateDateTime, 1000);
   </script>
+
 </body>
 </html>
